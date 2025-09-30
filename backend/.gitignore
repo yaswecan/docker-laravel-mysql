@@ -23,5 +23,3 @@ yarn-error.log
 /.zed
 
 
-Dockerfile
-docker-compose.yml
