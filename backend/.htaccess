@@ -1,0 +1,10 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Allow direct access to /storage
+    RewriteRule ^storage/ - [L]
+
+    # Rewrite all other requests to public/index.php
+    RewriteRule ^(.*)$ public/index.php [QSA,L]
+</IfModule>
+

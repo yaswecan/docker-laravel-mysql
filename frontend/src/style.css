@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* NAVIGATION */
+header {
+  background-color:  white;
+  padding: 10px 0;
+}
+
+nav {
+  text-align: center;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0 20px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Active link styling */
+nav a.active {
+  color: #ff6347;  /* Active link color (Tomato) */
+}
+
+/* Content section styles */
+#content {
+  padding: 20px;
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    margin: 10px 0;
+  }
+}
+
+
+/* Home page */
+
+.category-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+.category-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  height: 50px;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
+
+.category-card img {
+  width: 40px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.category-card h3 {
+  margin-top: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.category-card p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
