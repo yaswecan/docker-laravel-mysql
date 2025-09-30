@@ -1,0 +1,36 @@
+services:
+  php-app:
+    build:
+      context: ./backend  # Set the build context to /api (this means only the contents of /api will be used)
+      dockerfile: Dockerfile  # Dockerfile is still in the root directory (or adjust if necessary)
+    depends_on:
+      - db
+    env_file:
+      - ./.env
+    ports:
+      - "80:80"
+    volumes:
+      - ./backend:/var/www/html  # Mount only the /api folder to the container
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin_container
+    environment:
+      PMA_HOST: ${MYSQL_HOST}
+      PMA_PORT: ${MYSQL_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - "8080:80"
+
+  db:
+    image: mysql:8.0
+    env_file:
+      - ./.env
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
+
